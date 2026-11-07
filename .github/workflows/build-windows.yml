@@ -1,5 +1,3 @@
-# Builds UPFRONT for Windows on GitHub's computers and publishes a ready-to-run
-# installer on your repository's "Releases" page. Runs on every upload.
 name: Build UPFRONT
 
 on:
@@ -11,13 +9,13 @@ permissions:
 
 jobs:
   windows:
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Build the VST3
         run: |
-          cmake -B build -A x64
+          cmake -B build -G "Visual Studio 17 2022" -A x64
           cmake --build build --config Release --parallel
 
       - name: Make the installer and portable zip
