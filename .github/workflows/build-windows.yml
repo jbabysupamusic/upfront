@@ -17,7 +17,7 @@ jobs:
 
       - name: Build the VST3
         run: |
-             cmake -B build -A x64
+          cmake -B build -A x64
           cmake --build build --config Release --parallel
 
       - name: Make the installer and portable zip
